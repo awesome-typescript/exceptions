@@ -101,6 +101,9 @@ export const exceptionFactory = (error: ErrorRequest): SystemException => {
   if (error.name === AuthenticationException.name) {
     return new AuthenticationException(error.message, createException(error))
   }
+  // if (error.name === PersistenceException.name) {
+  //   return new PersistenceException(error.message, createException(error))
+  // }
 
   // system.configuration
   if (error.name === SettingsPropertyWrongTypeException.name) {

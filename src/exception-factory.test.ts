@@ -7,7 +7,7 @@ describe('exception-factory', () => {
 
   beforeEach(() => {
     expectedError = exceptionFactory({
-      name: 'BannedException',
+      name: 'AuthenticationException',
       message: '{{message}}',
       stack: '{{trace}}',
     })
@@ -19,10 +19,9 @@ describe('exception-factory', () => {
   })
 
   test('should create factory, with correct error object', () => {
-    expect(expectedError.name).toBe('BannedException')
-    expect(expectedError.names).toHaveLength(5)
+    expect(expectedError.name).toBe('AuthenticationException')
+    expect(expectedError.names).toHaveLength(4)
     expect(expectedError.names).toEqual([
-      'BannedException',
       'AuthenticationException',
       'SystemException',
       'Exception',

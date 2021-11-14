@@ -35,6 +35,7 @@ export { ExternalException } from './system.runtime.interopservices'
 
 export {
   AuthenticationException,
+  PermissionException,
   InvalidCredentialException,
 } from './system.security.authentication'
 
