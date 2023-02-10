@@ -34,7 +34,7 @@ describe('SystemException', () => {
   test('should throw an error, with correct name', () => {
     try {
       throw new SystemException()
-    } catch (error) {
+    } catch (error: any) {
       expect(error.name).toBe('SystemException')
     }
   })
@@ -42,7 +42,7 @@ describe('SystemException', () => {
   test('should throw an error, with correct names', () => {
     try {
       throw new SystemException()
-    } catch (error) {
+    } catch (error: any) {
       expect(error.names).toHaveLength(3)
       expect(error.names).toEqual(['SystemException', 'Exception', 'Error'])
     }
@@ -57,7 +57,7 @@ describe('SystemException', () => {
   test('should throw an error, with a not empty stack', () => {
     try {
       throw new SystemException()
-    } catch (error) {
+    } catch (error: any) {
       expect(error.stack).not.toBeUndefined()
       expect(error.stack).not.toBeNull()
       expect(error.stack).not.toBe('')
@@ -67,7 +67,7 @@ describe('SystemException', () => {
   test('should throw an error, with a parent stack', () => {
     try {
       throw new SystemException('SystemException error 1')
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('SystemException error 1')
       expect(error.stack).not.toBeUndefined()
       expect(error.stack).not.toBeNull()
@@ -75,7 +75,7 @@ describe('SystemException', () => {
 
       try {
         throw new SystemException('SystemException error 2', error)
-      } catch (error_) {
+      } catch (error_: any) {
         expect(error_.message).toBe('SystemException error 2')
         expect(error_.stack).not.toBeUndefined()
         expect(error_.stack).not.toBeNull()

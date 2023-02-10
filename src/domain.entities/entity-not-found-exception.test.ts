@@ -64,7 +64,7 @@ describe('EntityNotFoundException', () => {
   test('should throw an error, with correct name', () => {
     try {
       throw new EntityNotFoundException()
-    } catch (error) {
+    } catch (error: any) {
       expect(error.name).toBe('EntityNotFoundException')
     }
   })
@@ -72,7 +72,7 @@ describe('EntityNotFoundException', () => {
   test('should throw an error, with correct names', () => {
     try {
       throw new EntityNotFoundException()
-    } catch (error) {
+    } catch (error: any) {
       expect(error.names).toHaveLength(5)
       expect(error.names).toEqual([
         'EntityNotFoundException',
@@ -93,7 +93,7 @@ describe('EntityNotFoundException', () => {
   test('should throw an error, with a not empty stack', () => {
     try {
       throw new EntityNotFoundException()
-    } catch (error) {
+    } catch (error: any) {
       expect(error.stack).not.toBeUndefined()
       expect(error.stack).not.toBeNull()
       expect(error.stack).not.toBe('')
@@ -103,7 +103,7 @@ describe('EntityNotFoundException', () => {
   test('should throw an error, with a parent stack', () => {
     try {
       throw new EntityNotFoundException('EntityNotFoundException error 1')
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toBe('EntityNotFoundException error 1')
       expect(error.stack).not.toBeUndefined()
       expect(error.stack).not.toBeNull()
@@ -114,7 +114,7 @@ describe('EntityNotFoundException', () => {
           'EntityNotFoundException error 2',
           error,
         )
-      } catch (error_) {
+      } catch (error_: any) {
         expect(error_.message).toBe('EntityNotFoundException error 2')
         expect(error_.stack).not.toBeUndefined()
         expect(error_.stack).not.toBeNull()
